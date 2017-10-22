@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="skeleton.css">
+  <style>
+  .container {
+    max-width: 600px;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="container">
+    <h1 v-if="show">{{ title }}</h1>
+    <h1 v-else>{{ title }} de Vue.js</h1>
+    <div class="row">
+      <input type="text" v-model="text" placeholder="Tarefa" v-on:keyup.enter="addTodo()">
+      <button class="button-primary" @click="addTodo()">Add</button>
+    </div>
+    <div class="row">
+      <ul>
+        <li v-for="(item, index) in todos">
+          <span>{{ index }} - {{ item.text }}</span>
+          <button @click="deleteTodo(index)">x</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    new Vue({
+      el: '#app',
+
+      data: {
+        title: 'Todo List',
+        text: '',
+        todos: [{ text: 'Primeira Tarefa' }],
+        show: true
+      },
+
+      methods: {
+        addTodo() {
+          this.todos.push( {text: this.text} )
+          this.text = ''
+        },
+        deleteTodo(index) {
+          this.todos.splice(index, 1)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
