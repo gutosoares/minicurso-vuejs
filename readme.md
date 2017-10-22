@@ -1,4 +1,5 @@
 # Material do minicurso apresentado na edição do SETI de 2017
+http://seti.ufla.br/
 
 ### Projeto 1
 > Exemplo de uma todo list apenas para o primeiro contato com o Vue.js
