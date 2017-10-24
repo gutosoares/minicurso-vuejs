@@ -13,7 +13,6 @@
     </div>
     <br>
     <div class="btn-group">
-      <button class="btn btn-outline-danger" @click="deleteEvent(event.id)">Excluir</button>
       <router-link class="btn btn-outline-primary" to="/">Voltar</router-link>
     </div>
   </div>
@@ -34,17 +33,6 @@ export default {
       this.$http.get('http://localhost:3000/events/' + id)
         .then(response => {
           this.event = response.body
-        })
-        .catch(error => {
-          console.log('Error: ', error)
-        })
-    },
-
-    deleteEvent(id) {
-      this.$http.delete('http://localhost:3000/events/' + id)
-        .then(response => {
-          console.log('Evento deletado com sucesso', response)
-          this.$router.push({ path: '/'})
         })
         .catch(error => {
           console.log('Error: ', error)
