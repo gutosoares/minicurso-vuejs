@@ -21,6 +21,7 @@
           <td>{{ event.date }}</td>
           <td>
             <router-link class="btn btn-primary" :to="'/details/' + event.id">Detalhes</router-link>
+            <button class="btn btn-danger" @click="deleteEvent(event.id)">Excluir</button>
           </td>
         </tr>
       </tbody>
@@ -47,10 +48,24 @@ export default {
         .catch(error => {
           console.log('Error: ', error)
         })
+    },
+
+    deleteEvent(id) {
+      this.$http.delete('http://localhost:3000/events/' + id)
+        .then(response => {
+          console.log('Evento deletado com sucesso', response)
+        })
+        .catch(error => {
+          console.log('Error: ', error)
+        })
     }
   },
 
   created() {
+    this.fetchEvents()
+  },
+
+  updated() {
     this.fetchEvents()
   }
 }
