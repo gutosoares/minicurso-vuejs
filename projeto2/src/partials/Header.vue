@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <router-link class="nav-item nav-link active" to="/events">Home</router-link>
-            <!-- <router-link class="nav-item nav-link" to="/add">Add Evento</router-links> -->
+            <router-link class="nav-item nav-link float-right" to="/add">Novo Evento</router-link>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-
+  name: 'app-header'
 }
 </script>
 
