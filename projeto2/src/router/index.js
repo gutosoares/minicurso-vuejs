@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+import Add from '@/components/Add'
+import Edit from '@/components/Edit'
 import Events from '@/components/Events'
 import Details from '@/components/Details'
-import Add from '@/components/Add'
 import NotFound from '@/components/NotFound'
 
 Vue.use(Router)
@@ -25,6 +27,10 @@ export default new Router({
     {
       path: '/add',
       component: Add
+    },
+    {
+      path: '/edit/:id',
+      component: Edit
     },
     {
       path: '*',
