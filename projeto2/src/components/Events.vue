@@ -3,6 +3,7 @@
     <div class="jumbotron">
       <h1 class="display-3">Eventos Cadastrados</h1>
     </div>
+    <alert v-if="alert" :message="alert"></alert>
     <table class="table">
       <thead>
         <tr>
@@ -30,12 +31,19 @@
 </template>
 
 <script>
+import Alert from '@/components/Alert'
+
 export default {
   name: 'events',
 
+  components: {
+    'alert': Alert
+  },
+
   data () {
     return {
-      events: []
+      events: [],
+      alert: ''
     }
   },
 
@@ -62,6 +70,9 @@ export default {
   },
 
   created() {
+    if(this.$route.query.alert) {
+      this.alert = this.$route.query.alert
+    }
     this.fetchEvents()
   },
 
