@@ -14,6 +14,7 @@
     <br>
     <div class="btn-group">
       <router-link class="btn btn-outline-primary" to="/">Voltar</router-link>
+      <router-link class="btn btn-outline-primary" :to="'/edit/'+ event.id">Editar</router-link>
     </div>
   </div>
 </template>

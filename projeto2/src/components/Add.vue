@@ -71,8 +71,7 @@ export default {
 
         this.$http.post('http://localhost:3000/events', newEvent)
           .then(response => {
-            console.log('Evento criado com sucesso')
-            this.$router.push({ path: '/' })
+            this.$router.push({ path: '/', query: {alert: 'Evento criado com sucesso' }})
           })
           .catch(error => {
             console.log('Error', error)
